@@ -1,6 +1,6 @@
 package com.authapi.AuthAPI.model
 
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "tokens")

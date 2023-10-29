@@ -14,15 +14,15 @@ class UserService(
 
     @Transactional
     fun registerUser(username: String, password: String): User {
-        // Verificar se o nome de usuário já existe
+        // Verifica se o nome de usuário já existe
         if (userRepository.findByUsername(username) != null) {
             throw IllegalArgumentException("Nome de usuário já existe")
         }
 
-        // Criar uma instância de User com os dados fornecidos
+        // Cria uma instância de User com os dados fornecidos
         val user = User(username = username, password = passwordEncoder.encode(password))
 
-        // Salvar o usuário no banco de dados
+        // Salva o usuário no banco de dados
         return userRepository.save(user)
     }
 
